@@ -1,0 +1,18 @@
+Instructions for creating a new track:
+
+There are 4 files that must be manually created for the creation of a track:
+1. track_{track_num}_full.png - the main track image, this will be displayed in the background on every frame
+2. track_{track_num}_boundary - this will be used for detecting when the particle collides with the track boundary
+3. track_{track_num}_start_mark - this file contains the position where the particle will start off, denoted by a green pixel
+4. track_{track_num}_victory_box - this will be used for detecting when the particle collides with the victory box, and has therefore completed the track
+
+1. Track border should be drawn using straight black (RGB: (0, 0, 0)) lines, such that the track can be split into a series of distinct rectangles. This is important for the distance_scoring algorithm to work properly. The track itself should be a grey colour (RGB: (127, 127, 127), and it is recommended to be kept of uniform width. The victory box should be this RGB colour: (36, 28, 237) and placed at the end of the track.
+
+2. The track boundary can be obtained by filling the rest of track_{track_num}_full.png (1) in with white, apart from the track boundary. Then convert the white to transparent. One way to do this is to use the 'color to alpha' tool in the GIMP photo editing software.
+
+3. The start mark can be created by coloring in a pixel green (RGB: (0, 255, 0)), where you want the particle to start, on the track_{track_num}_full.png (1) image, and then filling everything else in white.
+
+4. The victory box can be obtained by filling the rest of track_{track_num}_full.png (1) in with white, apart from the victory box. Then convert the white to transparent. One way to do this is to use the 'color to alpha' tool in the GIMP photo editing software.
+
+
+5. Finally, create the track sections by running the section_creator.py file, enetering the relevant track_num at the top. For naming the files, please ensure that exactly the same naming conventions are used as for the examples. Place all of these files inside a new track_{track_num} folder, inside the tracks directory. Now you can use the the track by setting the track_num parameter in the main.py program.
